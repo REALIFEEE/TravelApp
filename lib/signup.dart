@@ -10,9 +10,7 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
- 
-
- // _SignUpState({this.name, this.password});
+  // _SignUpState({this.name, this.password});
 
   @override
   Widget build(BuildContext context) {
@@ -44,15 +42,42 @@ class _SignUpState extends State<SignUp> {
               ),
               ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomePage()));
-                    // showDialog(
-                    //     context: context,
-                    //     builder: (context) {
-                    //       return AlertDialog(
-                    //         content: Text('Hello $name'),
-                    //       );
-                    //     });
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            content: SizedBox(
+                              height: 100.0,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Hello $name',
+                                    style: const TextStyle(
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                  TextButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    HomePage()));
+                                      },
+                                      child: const Text(
+                                        'Next',
+                                        style: TextStyle(fontSize: 18),
+                                      ))
+                                ],
+                              ),
+                            ),
+                          );
+                        });
+                    // Navigator.push(context,
+                    //     MaterialPageRoute(builder: (context) {
+                    //   return HomePage();
+                    // }));
                   },
                   child: const Text('submit'))
             ],
